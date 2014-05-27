@@ -15,6 +15,6 @@ class VideosController < ApplicationController
   private
 
   def find_video
-    @video = video.find(params[:id])
+    @video = Video.find(params[:id])
   end
 end
