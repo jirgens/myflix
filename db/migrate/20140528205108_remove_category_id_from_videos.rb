@@ -1,5 +1,5 @@
 class RemoveCategoryIdFromVideos < ActiveRecord::Migration
-  def self.up 
-    remove_column :videos, :category_id
+  def change
+    remove_column :videos, :category_id, :integer
   end
 end
