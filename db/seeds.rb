@@ -37,5 +37,3 @@ Video.create(
 Category.create(name: "Comedy")
 Category.create(name: "Drama")
 Category.create(name: "Western")
-Category.create(name: "horror")
-
