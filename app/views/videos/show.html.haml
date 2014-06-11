@@ -14,6 +14,16 @@
 %section.reviews.container
   .row
     .span10.offset1
+      = form_for [@video, Review.new] do |f|
+        %fieldset
+          %label Rate this video
+          = f.select :rating, options_for_select([5,4,3,2,1].map {|number| [pluralize(number, "Star")]})
+          %label Write Review
+          .span6
+            = f.text_area :content, rows: 6, class: "span6"
+        %fieldset.actions.clearfix 
+          %input(type="submit" value="Submit" class="btn")
+          = link_to "Cancel", @video  
       %header
         %h3 User Reviews (#{@reviews.count})
       %ul
@@ -25,16 +35,5 @@
                 %p by <a href="">#{review.user.full_name}</a>
               .span8
                 %p= review.content
-      / %form
-      /   %fieldset
-      /     %label Rate this video
-      /     %select(name="")
-      /       %option(value="5")
-      /       %option(value="4")
-      /       %option(value="3")
-      /       %option(value="2")
-      /       %option(value="1")
-      /     %label Write Review
-      /     %textarea.span6(name="" rows="6")
-      /   %fieldset.actions.clearfix    
+      
 
