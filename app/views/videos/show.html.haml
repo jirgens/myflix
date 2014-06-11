@@ -9,8 +9,8 @@
           %span Rating: 4.0/5.0
         %p= @video.description
         .actions
-          %a.btn.btn-primary(href="#") Watch Now
-          %a.btn.btn-primary(href="#") + My Queue
+          = link_to "+ My Queue", queue_items_path(video_id: @video.id), method: :post, class: 'btn'
+          %a.btn(href="#") Watch Now
 %section.reviews.container
   .row
     .span10.offset1
