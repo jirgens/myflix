@@ -2,6 +2,7 @@ require "spec_helper"
 
 describe Category do  
   it { should have_many(:videos)}
+  it { should validate_presence_of(:name)}
   
   describe "#recent_videos" do  #how to test an instance method
     it "returns the videos in reverse chronical order by created at" do
