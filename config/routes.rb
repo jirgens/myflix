@@ -9,6 +9,10 @@ Myflix::Application.routes.draw do
     end
     resources :reviews, only: [:create]
   end
+
+  resources :users, only: [:show]
+  get 'people', to: 'relationships#index'
+  resources :relationships, only: [:create, :destroy]
   # get 'ui(/:action)', controller: 'ui'
   resources :categories, only: [:show, :index]
   resources :queue_items, only: [:create, :destroy]

@@ -101,6 +101,7 @@ describe QueueItemsController do
       delete :destroy, id: queue_item.id 
       expect(QueueItem.count).to eq(1) 
     end
+    
     it_behaves_like "requires sign in" do
       let(:action) { delete :destroy, id: 3 } 
     end
