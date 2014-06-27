@@ -1,24 +1,16 @@
 %section.invite.container
   .row
     .col-sm-10.col-sm-offset-1
-      %form.invite
+      = form_for @invitation, class: "invite" do |f|
         %header
           %h1 Invite a friend to join MyFlix!
         %fieldset
           .form-group
-            %label Friend's Name
-            .row
-              .col-sm-4
-                %input.form-control(type="text")
-          .form-group
-            %label Friend's Email Address
-            .row
-              .col-sm-4
-                %input.form-control(type="email")
-          .form-group
-            %label Invitation Message
-            .row
-              .col-sm-6
-                %textarea.form-control(rows=6) Please join this really cool site!
-        %fieldset.form-group.action
+            = f.label :recipient_name, "Friend's Name"
+            = f.text_field_area :recipient_name
+            = f.label :recipient_email, "Friend's Email Address"
+            = f.text_field_area :recipient_email
+            = f.label :message
+            = f.text_area :message, class: "span4", rows: 6, placeholder: "Please consider joining MyFlix. You won't regret it!"
+        %fieldset.action
           %input(type="submit" value="Send Invitation" class="btn btn-default")

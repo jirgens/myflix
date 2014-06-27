@@ -7,12 +7,12 @@ class InvitationsController < ApplicationController
 
   def create
     @invitation = Invitation.create(invitation_params.merge(inviter: current_user))
-    AppMailer.send_invitation_email(@invitation).deliver
     if @invitation.save
+      AppMailer.send_invitation_email(@invitation).deliver
       flash[:success] = 'Your friend #{@invitation.recipient_name} has been invited.'
       redirect_to new_invitation_path
     else
-      flash[:danger] = 'Please check your inputs.'
+      flash[:error] = 'Please check your inputs.'
       render :new 
     end
   end
@@ -21,10 +21,8 @@ class InvitationsController < ApplicationController
   private
 
   def invitation_params
-    params.fetch(:invitation, {}).permit(:recipient_name, :recipient_email, :message, :inviter_id)
+    params.require(:invitation).permit!
   end
 
 
 end
-
- # line 9 invitation = Invitation.create(invitation_params.merge!(inviter_id: current_user.id))
