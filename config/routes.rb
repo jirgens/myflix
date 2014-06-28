@@ -10,7 +10,7 @@ Myflix::Application.routes.draw do
     resources :reviews, only: [:create]
   end
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :create]
   get 'people', to: 'relationships#index'
   resources :relationships, only: [:create, :destroy]
   # get 'ui(/:action)', controller: 'ui'
@@ -23,7 +23,6 @@ Myflix::Application.routes.draw do
   get 'sign_in', to: "sessions#new"
   get 'sign_out', to: "sessions#destroy"
   get 'my_queue', to: "queue_items#index"
-  resources :users, only: [:create]
   resources :sessions, only: [:create]
 
   get 'forgot_password', to: 'forgot_passwords#new'     
