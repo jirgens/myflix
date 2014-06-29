@@ -1,14 +1,13 @@
 Myflix::Application.routes.draw do
   root to: "pages#front"
-  get 'home', to: "videos#index"
+  get 'home', to: "categories#index"
    # root to: "videos#index"
 
   resources :videos, only: [:show] do
-    collection do
-      post :search, to: "videos#search"
-    end
     resources :reviews, only: [:create]
   end
+  
+  resources :video_searches, only: [:create]
 
   resources :users, only: [:show, :create]
   get 'people', to: 'relationships#index'
