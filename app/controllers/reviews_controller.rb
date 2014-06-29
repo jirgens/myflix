@@ -1,17 +1,8 @@
-class ReviewsController < ApplicationController
+class ReviewsController < InheritedResources::Base
   before_filter :require_user
-
-  def create
-    @video = Video.find(params[:video_id])
-    review = @video.reviews.build(review_params)
-    if review.save
-      redirect_to @video
-    else
-      @reviews = @video.reviews.reload
-      render 'videos/show'
-    end
-  end
-
+  respond_to :html
+  belongs_to :video
+  actions :create
 
   private
 

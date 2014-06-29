@@ -1,0 +1,9 @@
+%article.review
+  %li.row
+    .span2
+      %span Rating: #{review.rating} / 5
+      %p 
+        by 
+        = link_to review.user.full_name, review.user
+    .span8
+      %p= review.content

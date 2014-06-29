@@ -1,18 +1,9 @@
-class VideosController < ApplicationController
+class VideosController < InheritedResources::Base
   before_filter :require_user
-
-  def index
-    @categories = Category.all.order(:name)
-  end
-    
-  def show
-    @video = Video.find(params[:id])
-    @reviews = @video.reviews
-  end
+  actions :show
 
   def search
     @results = Video.search_by_title(params[:search_term])
   end
-    
-
+  
 end

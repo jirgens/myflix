@@ -25,17 +25,6 @@
           %input(type="submit" value="Submit" class="btn")
           = link_to "Cancel", @video  
       %header
-        %h3 User Reviews (#{@reviews.count})
+        %h3 User Reviews (#{@video.reviews.count})
       %ul
-        - @reviews.each do |review|
-          %article.review
-            %li.row
-              .span2
-                %span Rating: #{review.rating} / 5
-                %p 
-                  by 
-                  = link_to review.user.full_name, review.user
-              .span8
-                %p= review.content
-      
-
+        = render partial: '/reviews/review', collection: @video.reviews
