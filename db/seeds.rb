@@ -30,7 +30,7 @@ monk = Video.create(title: "Monk", description: "Silly OCD PI and his neurotic m
   # small_cover_url: "/tmp/monk.jpg",
   # large_cover_url: "/tmp/monk_large.jpg")
 
-Video.create(title: "South Park", description: "Miscirent young boys wild in Colorado.", category: comedy, small_cover_url: "/tmp/south_park.jpg", large_cover_url: "/tmp/monk_large.jpg")
+Video.create(title: "South Park", description: "Miscrient young boys wild in Colorado.", category: comedy, small_cover_url: "/tmp/south_park.jpg", large_cover_url: "/tmp/monk_large.jpg")
   # category: Category.find_by(name: "Comedy"),
   # title: "South Park",
   # description: "Miscirent young boys wild in Colorado.",

@@ -35,7 +35,6 @@ describe Video do
       back_to_the_future = Video.create(title: "Back to the Future", description: "time travel!!")
       expect(Video.search_by_title("")).to eq([])
     end
-
   end
 end
 

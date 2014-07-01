@@ -2,7 +2,7 @@
   .container
     .row-fluid
       .video_large_cover.col-sm-7.col-sm-offset-1
-        %img(src="#{@video.large_cover_url}")
+        %img(src="#{@video.large_cover}")
       .video_info.col-sm-3
         %header
           %h3= @video.title
@@ -10,7 +10,7 @@
         %p= @video.description
         .actions
           = link_to "+ My Queue", queue_items_path(video_id: @video.id), method: :post, class: 'btn' unless current_user.queued_video?(@video)
-          %a.btn(href="#") Watch Now
+          %a.btn(href="#{@video.video_url}") Watch Now
 %section.reviews.container
   .row
     .span10.offset1
