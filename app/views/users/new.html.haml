@@ -1,15 +1,14 @@
 %section.register.container
   .row
     .col-sm-10.col-sm-offset-1
-      = bootstrap_form_for @user, html: { class: "form-horizontal"} do |f|
+      = bootstrap_form_for @user, html: { class: "form-horizontal", id: "payment-form" } do |f|
         %header
           %h1 Register
         %fieldset
-          .col-sm-4
+          .col-sm-6
             = f.email_field :email, label: "Email Address"
             = f.password_field :password
             = f.text_field :full_name, label: "Full Name"
             = hidden_field_tag :invitation_token, @invitation_token
-        %fieldset.actions.control-group.col-sm-offset-2
-          .controls
-            %input(type="submit" value="Sign Up" class="btn btn-default")
+            %script.stripe-button{"data-amount" => "999", "data-currency" => "usd", "data-description" => "$9.99 for Monthly Subscribtion", "data-key" => "pk_test_zVjPH1XlyxIPJjWklRWSI7Y0", "data-name" => "MyFlix Sign Up Charge", src: "https://checkout.stripe.com/checkout.js"}
+       
