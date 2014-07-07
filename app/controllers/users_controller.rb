@@ -7,23 +7,15 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
-      handle_invitation
-      Stripe.api_key = ENV['STRIPE_SECRET_KEY']
-      Stripe::Charge.create(
-        :amount => 999, # amount in cents
-        :currency => "usd",
-        :card => params[:stripeToken],
-        :description => "Subscribtion charge for #{@user.email}"
-        )
-     
-      # rescue Stripe::CardError => e     # The card has been declined
-      AppMailer.send_welcome_email(@user).deliver
+    result = UserSignup.new(@user).sign_up(params[:stripeToken], params[:invitation_token])
+    if result.successful?
+      flash[:success] = "Thank you for registering! Please sign in."
       redirect_to sign_in_path
     else
+      flash[:error] = result.error_message
       render :new
     end
-  end
+  end  
 
   def show
     @user = User.find(params[:id])
@@ -41,17 +33,7 @@ class UsersController < ApplicationController
   end
 
   private
-    def user_params
-      params.require(:user).permit(:full_name, :email, :password)
-    end
-
-    def handle_invitation
-      if params[:invitation_token].present?
-        invitation = Invitation.where(token: params[:invitation_token]).first
-        @user.follow(invitation.inviter)
-        invitation.inviter.follow(@user)
-        invitation.update_column(:token, nil)
-      end
-    end
-
+  def user_params
+    params.require(:user).permit(:full_name, :email, :password)
+  end
 end

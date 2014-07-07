@@ -18,6 +18,8 @@ gem 'mini_magick'
 gem 'fog'
 gem 'stripe'
 gem 'figaro'
+gem 'draper'
+
 
 group :development do
   gem 'sqlite3'
@@ -34,6 +36,10 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'capybara-email', github: 'dockyard/capybara-email'
+  gem 'vcr'
+  gem 'webmock'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 
 group :test, :development do

@@ -16,6 +16,10 @@ feature 'User invites friend' do
 
     fill_in "Password", with: "password"
     fill_in "Full Name", with: "John Bloe"
+    fill_in "Credit Card Number", with: '4242424242424242'
+    fill_in "Security Code", with: "123"
+    select "7 - July", from: "date-month"
+    select "2017", from: "date-year"
     click_button "Sign Up"
 
     fill_in "Email Address", with: "joe@example.com"
