@@ -31,7 +31,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Tue, 08 Jul 2014 19:04:31 GMT
+      - Tue, 08 Jul 2014 19:05:13 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -52,14 +52,14 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "tok_14E3tD4NXe5wJuj7nKIOpivo",
+          "id": "tok_14E3tt4NXe5wJuj7T9uQ5Cwo",
           "livemode": false,
-          "created": 1404846271,
+          "created": 1404846313,
           "used": false,
           "object": "token",
           "type": "card",
           "card": {
-            "id": "card_14E3tD4NXe5wJuj7vgkunVkC",
+            "id": "card_14E3tt4NXe5wJuj7li1SD4Mj",
             "object": "card",
             "last4": "0002",
             "brand": "Visa",
@@ -79,13 +79,13 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Tue, 08 Jul 2014 19:04:31 GMT
+  recorded_at: Tue, 08 Jul 2014 19:05:13 GMT
 - request:
     method: post
-    uri: https://api.stripe.com/v1/charges
+    uri: https://api.stripe.com/v1/customers
     body:
       encoding: US-ASCII
-      string: amount=999&currency=usd&card=tok_14E3tD4NXe5wJuj7nKIOpivo&description=an%20invalid%20charge
+      string: card=tok_14E3tt4NXe5wJuj7T9uQ5Cwo&email=collin_oreilly%40dickens.biz&plan=base
     headers:
       Accept:
       - '*/*; q=0.5, application/xml'
@@ -102,7 +102,7 @@ http_interactions:
         sisu.local 13.0.0 Darwin Kernel Version 13.0.0: Thu Sep 19 22:22:27 PDT 2013;
         root:xnu-2422.1.72~6/RELEASE_X86_64 x86_64"}'
       Content-Length:
-      - '91'
+      - '78'
   response:
     status:
       code: 402
@@ -111,11 +111,11 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Tue, 08 Jul 2014 19:04:31 GMT
+      - Tue, 08 Jul 2014 19:05:13 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '162'
+      - '117'
       Cache-Control:
       - no-cache, no-store
       Access-Control-Allow-Methods:
@@ -135,10 +135,9 @@ http_interactions:
           "error": {
             "message": "Your card was declined.",
             "type": "card_error",
-            "code": "card_declined",
-            "charge": "ch_14E3tD4NXe5wJuj7cgR88UEX"
+            "code": "card_declined"
           }
         }
     http_version: 
-  recorded_at: Tue, 08 Jul 2014 19:04:31 GMT
+  recorded_at: Tue, 08 Jul 2014 19:05:13 GMT
 recorded_with: VCR 2.9.2
