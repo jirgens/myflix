@@ -25,12 +25,4 @@
       %header
         %h3 #{@user.full_name}'s Reviews (#{@user.reviews.count})
       %ul
-        -@user.reviews.each do |review|
-          %article.review
-            %li.row
-              .col-sm-2
-                %p
-                  = link_to review.video.title, review.video
-                %col Rating: #{review.rating} / 5
-              .col-sm-8
-                %p= review.content
+        = render partial: '/reviews/review', collection: @user.reviews

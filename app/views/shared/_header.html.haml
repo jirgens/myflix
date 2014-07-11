@@ -6,10 +6,10 @@
       %li= link_to "Videos", home_path
       %li= link_to "My Queue", my_queue_path
       %li= link_to "People", people_path
-    .col-sm-4 
-      = form_tag search_videos_path do
+    .col-md-4
+      = form_tag video_searches_path do
         %input.search-query(name="search_term" type="text" placeholder="Search for videos")
-        %button.btn.btn-sm(type="submit") Search
+        %button.btn.btn-sm#sb(type="submit") Search
     #user_links.pull-right
       %ul
         %li.dropdown

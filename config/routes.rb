@@ -1,14 +1,12 @@
 Myflix::Application.routes.draw do
   root to: "pages#front"
-  get 'home', to: "videos#index"
-   # root to: "videos#index"
+  get 'home', to: "categories#index"
 
   resources :videos, only: [:show] do
-    collection do
-      post :search, to: "videos#search"
-    end
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:create, :show]
   end
+
+  resources :video_searches, only: [:create]
 
   namespace :admin do
     resources :videos, only: [:new, :create]
@@ -18,7 +16,6 @@ Myflix::Application.routes.draw do
   resources :users, only: [:show, :create]
   get 'people', to: 'relationships#index'
   resources :relationships, only: [:create, :destroy]
-  # get 'ui(/:action)', controller: 'ui'
   resources :categories, only: [:show, :index]
   resources :queue_items, only: [:create, :destroy]
   post 'update_queue', to: 'queue_items#update_queue'

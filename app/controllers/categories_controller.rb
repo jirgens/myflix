@@ -1,5 +1,3 @@
-class CategoriesController < ApplicationController
-  def show
-    @category = Category.find(params[:id])
-  end
+class CategoriesController < InheritedResources::Base
+  actions :index, :show
 end    

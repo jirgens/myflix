@@ -20,6 +20,7 @@ gem 'stripe'
 gem 'stripe_event'
 gem 'figaro'
 gem 'draper'
+gem 'inherited_resources'
 
 
 group :development do

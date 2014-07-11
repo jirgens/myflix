@@ -123,6 +123,9 @@ GEM
       activesupport (>= 3.1, < 4.1)
       haml (>= 3.1, < 4.1)
       railties (>= 3.1, < 4.1)
+    has_scope (0.6.0.rc)
+      actionpack (>= 3.2, < 5)
+      activesupport (>= 3.2, < 5)
     hashie (3.1.0)
     heroku-api (0.3.18)
       excon (~> 0.27)
@@ -130,6 +133,9 @@ GEM
     hike (1.2.3)
     i18n (0.6.5)
     inflecto (0.0.2)
+    inherited_resources (1.5.0)
+      has_scope (~> 0.6.0.rc)
+      responders (~> 1.0)
     ipaddress (0.8.0)
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
@@ -196,6 +202,8 @@ GEM
       redis (~> 3.0, >= 3.0.4)
     rendezvous (0.0.2)
     request_store (1.0.6)
+    responders (1.1.0)
+      railties (>= 3.2, < 5)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rspec-core (2.14.8)
@@ -298,6 +306,7 @@ DEPENDENCIES
   figaro
   fog
   haml-rails
+  inherited_resources
   jquery-rails
   launchy
   letter_opener

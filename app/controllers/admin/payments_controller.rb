@@ -1,5 +1,3 @@
-class Admin::PaymentsController < AdminsController
-  def index
-    @payments = Payment.all
-  end
+class Admin::PaymentsController < InheritedResources::Base
+  actions :index
 end
