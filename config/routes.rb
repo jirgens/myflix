@@ -13,7 +13,7 @@ Myflix::Application.routes.draw do
     resources :payments, only: [:index]
   end
 
-  resources :users, only: [:show, :create]
+  resources :users, only: [:show, :create, :edit, :update]
   get 'people', to: 'relationships#index'
   resources :relationships, only: [:create, :destroy]
   resources :categories, only: [:show, :index]
@@ -26,12 +26,14 @@ Myflix::Application.routes.draw do
   get 'sign_out', to: "sessions#destroy"
   get 'my_queue', to: "queue_items#index"
   resources :sessions, only: [:create]
-
-  get 'forgot_password', to: 'forgot_passwords#new'     
+    
   resources :forgot_passwords, only: [:create]
+  get 'forgot_password', to: 'forgot_passwords#new' 
   get 'forgot_password_confirmation', to: 'forgot_passwords#confirm'
   resources :password_resets, only: [:show, :create]
   get 'expired_token', to: 'pages#expired_token'
+  get 'billing', to: 'pages#billing'
+  post 'billing', to: 'pages#cancel_service'
 
   resources :invitations, only: [:new, :create]
 

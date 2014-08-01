@@ -1,4 +1,5 @@
-class UsersController < ApplicationController
+class UsersController < InheritedResources::Base
+  actions :new, :edit, :update
   before_filter :require_user, only: [:show]
 
   def new
