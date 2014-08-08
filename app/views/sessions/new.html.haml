@@ -1,18 +1,21 @@
 %section.sign_in.container
   .row
-    .form-horizontal
-      = form_tag sessions_path, class: 'sign_in' do
+    .form-horizontal{role: "form"}
+      = bootstrap_form_tag url: sessions_path do |f|
         %header
           %h1 Sign in
-        %fieldset
-          = label_tag :email, "Email Address"
+        .form-group
+          = label_tag :email, "Email Address", class: 'col-sm-2'
           = email_field_tag :email
           %br
           %br
-          = label_tag :password
+        .form-group
+          = label_tag :password, "Password", class: 'col-sm-2'
           = password_field_tag :password
+
           %br
-          %br
-        %fieldset.form-group.action
+        .form-group.action
           %input(type="submit" value="Sign in" class="btn btn-default")
+          %br
+          %br
           = link_to "Forgot Password?", forgot_password_path

@@ -1,7 +1,7 @@
 %section#top-header.row
   %h1.col-md-2
-    = link_to "MyFLiX" 
-  - if current_user  
+    = link_to "MyFLiX", home_path
+  - if current_user
     %ul.col-md-4.clearfix
       %li= link_to "Videos", home_path
       %li= link_to "My Queue", my_queue_path
@@ -9,7 +9,7 @@
     .col-md-4
       = form_tag video_searches_path do
         %input.search-query(name="search_term" type="text" placeholder="Search for videos")
-        %button.btn.btn-sm#sb(type="submit") Search
+          %button.btn.btn-sm#sb(type="submit") Search
     #user_links.pull-right
       %ul
         %li.dropdown
