@@ -3,14 +3,14 @@
     .row-fluid
       .video_large_cover.col-sm-7.col-sm-offset-1
         %img(src="#{@video.large_cover}")
-      .video_info.col-sm-3
+      .video_info.col-sm-2.pull-right
         %header
           %h3= @video.title
-          %span Rating: 4/5 
+          %span Rating: 4/5
         %p= @video.description
         .actions
-          = link_to "+ My Queue", queue_items_path(video_id: @video.id), method: :post, class: 'btn' unless current_user.queued_video?(@video)
-          %a.btn(href="#{@video.video_url}") Watch Now
+          = link_to "+ My Queue", queue_items_path(video_id: @video.id), method: :post, class: 'btn btn-default' unless current_user.queued_video?(@video)
+          %a.btn.btn-default(href="#{@video.video_url}") Watch Now
 %section.reviews.container
   .row
     .span10.offset1
@@ -21,9 +21,10 @@
           %label Write Review
           .span6
             = f.text_area :content, rows: 6, class: "span6"
-        %fieldset.actions.clearfix 
+          %br
+        %fieldset.actions.clearfix
           %input(type="submit" value="Submit" class="btn")
-          = link_to "Cancel", @video  
+          = link_to "Cancel", @video
       %header
         %h3 User Reviews (#{@video.reviews.count})
       %ul
