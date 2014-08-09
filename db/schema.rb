@@ -81,5 +81,4 @@ ActiveRecord::Schema.define(version: 20140709215843) do
     t.string   "small_cover"
     t.string   "video_url"
   end
-
 end
