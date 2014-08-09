@@ -5,12 +5,12 @@ Myflix::Application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  config.serve_static_assets = false
+  config.serve_static_assets = true
 
   config.assets.compress = true
   config.assets.js_compressor = :uglifier
 
-  config.assets.compile = false
+  config.assets.compile = true
 
   config.assets.digest = true
 
@@ -20,8 +20,8 @@ Myflix::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
 
-  
-  
+
+
   # config.action_mailer.smtp_settings = {
   ActionMailer::Base.smtp_settings = {
   :port           => ENV['MAILGUN_SMTP_PORT'],
